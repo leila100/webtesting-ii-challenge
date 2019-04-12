@@ -1,10 +1,10 @@
 import React from "react"
 import { render } from "react-testing-library"
 
-import App from "./App"
+import Display from "./Display"
 
-describe("<App />", () => {
+describe("<Display />", () => {
   it("renders without crashing", () => {
-    render(<App />)
+    render(<Display />)
   })
 })
