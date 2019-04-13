@@ -17,11 +17,24 @@ describe("<Display />", () => {
   })
 
   it("displays balls count information passed through props", () => {
-    const count = 5
+    const count = 2
     const { getByTestId } = render(<Display ballsCount={count} />)
     const balls = getByTestId("balls")
-    console.log("balls ", balls.textContent)
     expect(balls.textContent).toBe(count.toString())
+    cleanup()
+  })
+
+  it("displays strikes text", () => {
+    const { getByText } = render(<Display />)
+    getByText(/strikes/i)
+    cleanup()
+  })
+
+  it("displays strikes count information passed through props", () => {
+    const count = 3
+    const { getByTestId } = render(<Display strikesCount={count} />)
+    const strikes = getByTestId("strikes")
+    expect(strikes.textContent).toBe(count.toString())
     cleanup()
   })
 })
