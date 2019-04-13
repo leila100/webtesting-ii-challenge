@@ -30,7 +30,8 @@ class App extends Component {
 
   foulClickHandler = () => {
     this.setState(prevState => {
-      return { strikesCount: prevState.strikesCount + 1 }
+      if (prevState.strikesCount < 2)
+        return { strikesCount: prevState.strikesCount + 1 }
     })
   }
 

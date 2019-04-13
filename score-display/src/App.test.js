@@ -97,5 +97,17 @@ describe("<App />", () => {
     expect(newStrikesCount).toBe(strikesCount + 1)
     cleanup()
   })
+
+  it("With two strikes a foul has no effect, count stays at 2 strikes.", () => {
+    const { getByTestId } = render(<App />)
+    // find the foul button
+    const foulButton = getByTestId("foulBtn")
+    // click the foul button three times to make sure strikes doesn't go over 2
+    for (let i = 0; i < 3; i++) fireEvent.click(foulButton)
+    // Get the new number of strikes
+    const strikesCount = Number(getByTestId("strikes").textContent)
+    expect(strikesCount).toBe(2)
+    cleanup()
+  })
 })
 4
