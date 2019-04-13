@@ -12,9 +12,8 @@ class App extends Component {
 
   ballClickHandler = () => {
     this.setState(prevState => {
-      return {
-        ballsCount: prevState.ballsCount + 1
-      }
+      if (prevState.ballsCount === 3) return { ballsCount: 0 }
+      return { ballsCount: prevState.ballsCount + 1 }
     })
   }
 

@@ -39,4 +39,16 @@ describe("<App />", () => {
     expect(newStrikesCount).toBe(strikesCount + 1)
     cleanup()
   })
+
+  it("balls reset to 0 when a player reaches 4 balls", () => {
+    const { getByTestId } = render(<App />)
+    // find the button
+    const ballButton = getByTestId("ballBtn")
+    // click the button 3 times to set the balls count to 3
+    for (let i = 0; i < 4; i++) fireEvent.click(ballButton)
+    // Get the new number of balls
+    const ballsCount = getByTestId("balls").textContent
+    expect(ballsCount).toBe("0")
+    cleanup()
+  })
 })
