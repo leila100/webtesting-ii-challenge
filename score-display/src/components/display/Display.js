@@ -1,10 +1,13 @@
 import React from "react"
 
-const Display = () => {
+const Display = props => {
+  const { ballsCount } = props
   return (
     <>
-      <h1>Dashboard</h1>
-      <div>Balls</div>
+      <h3>Display</h3>
+      <div>
+        Balls: <span data-testid='balls'>{ballsCount}</span>
+      </div>
     </>
   )
 }
