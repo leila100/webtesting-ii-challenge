@@ -28,11 +28,11 @@ describe("<App />", () => {
 
   it("when strike button is clicked, strike count increases by 1", () => {
     const { getByTestId } = render(<App />)
-    // get current number of balls
+    // get current number of strikes
     const strikesCount = Number(getByTestId("strikes").textContent)
-    // find the button
+    // find the strike button
     const strikeButton = getByTestId("strikeBtn")
-    // click the button
+    // click the strike button
     fireEvent.click(strikeButton)
     // Get the new number of strikes
     const newStrikesCount = Number(getByTestId("strikes").textContent)
@@ -81,6 +81,20 @@ describe("<App />", () => {
     const strikesCount = getByTestId("strikes").textContent
     expect(ballsCount).toBe("0")
     expect(strikesCount).toBe("0")
+    cleanup()
+  })
+
+  it("a `foul` increases strikes", () => {
+    const { getByTestId } = render(<App />)
+    // get current number of strikes
+    const strikesCount = Number(getByTestId("strikes").textContent)
+    // find the button
+    const foulButton = getByTestId("foulBtn")
+    // click the button
+    fireEvent.click(foulButton)
+    // Get the new number of strikes
+    const newStrikesCount = Number(getByTestId("strikes").textContent)
+    expect(newStrikesCount).toBe(strikesCount + 1)
     cleanup()
   })
 })

@@ -28,6 +28,12 @@ class App extends Component {
     this.setState({ strikesCount: 0, ballsCount: 0 })
   }
 
+  foulClickHandler = () => {
+    this.setState(prevState => {
+      return { strikesCount: prevState.strikesCount + 1 }
+    })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -43,6 +49,7 @@ class App extends Component {
             ballClick={this.ballClickHandler}
             strikeClick={this.strikeClickHandler}
             hitClick={this.hitClickHandler}
+            foulClick={this.foulClickHandler}
           />
         </main>
       </div>
