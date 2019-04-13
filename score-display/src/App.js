@@ -11,10 +11,17 @@ class App extends Component {
   }
 
   ballClickHandler = () => {
-    console.log("in ballClickHandler")
     this.setState(prevState => {
       return {
         ballsCount: prevState.ballsCount + 1
+      }
+    })
+  }
+
+  strikeClickHandler = () => {
+    this.setState(prevState => {
+      return {
+        strikesCount: prevState.strikesCount + 1
       }
     })
   }
@@ -30,7 +37,10 @@ class App extends Component {
             ballsCount={this.state.ballsCount}
             strikesCount={this.state.strikesCount}
           />
-          <Dashboard ballClick={this.ballClickHandler} />
+          <Dashboard
+            ballClick={this.ballClickHandler}
+            strikeClick={this.strikeClickHandler}
+          />
         </main>
       </div>
     )
