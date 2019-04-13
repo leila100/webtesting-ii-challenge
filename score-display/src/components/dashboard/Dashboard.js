@@ -1,11 +1,15 @@
-import React, { Component } from "react"
+import React from "react"
 
-class Dashboard extends Component {
-  state = {}
-
-  render() {
-    return <h1>Dashboard</h1>
-  }
+const Dashboard = () => {
+  return (
+    <>
+      <h1>Dashboard</h1>
+      <button>Strike</button>
+      <button>Ball</button>
+      <button>Foul</button>
+      <button>hit</button>
+    </>
+  )
 }
 
 export default Dashboard
