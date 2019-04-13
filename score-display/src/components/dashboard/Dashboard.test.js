@@ -1,5 +1,6 @@
 import React from "react"
-import { render } from "react-testing-library"
+import { render, cleanup } from "react-testing-library"
+afterEach(cleanup)
 
 import Dashboard from "./Dashboard"
 
