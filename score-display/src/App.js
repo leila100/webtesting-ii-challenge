@@ -24,6 +24,10 @@ class App extends Component {
     })
   }
 
+  hitClickHandler = () => {
+    this.setState({ strikesCount: 0, ballsCount: 0 })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -38,6 +42,7 @@ class App extends Component {
           <Dashboard
             ballClick={this.ballClickHandler}
             strikeClick={this.strikeClickHandler}
+            hitClick={this.hitClickHandler}
           />
         </main>
       </div>

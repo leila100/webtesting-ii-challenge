@@ -63,5 +63,25 @@ describe("<App />", () => {
     expect(strikesCount).toBe("0")
     cleanup()
   })
+
+  it("balls and strikes reset to 0 when a `hit` is recorded", () => {
+    const { getByTestId } = render(<App />)
+    //find strike button
+    const strikeButton = getByTestId("strikeBtn")
+    //find ball button
+    const ballButton = getByTestId("ballBtn")
+    // find the hit button
+    const hitButton = getByTestId("hitBtn")
+    // click ball and strike button to increment balls and strikes
+    fireEvent.click(ballButton)
+    fireEvent.click(strikeButton)
+    // click the hit button to reset balls ans strikes to 0
+    fireEvent.click(hitButton)
+    const ballsCount = getByTestId("balls").textContent
+    const strikesCount = getByTestId("strikes").textContent
+    expect(ballsCount).toBe("0")
+    expect(strikesCount).toBe("0")
+    cleanup()
+  })
 })
 4
