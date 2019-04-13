@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import "./App.css"
+// import "./App.css"
 import Display from "./components/display/Display.js"
 import Dashboard from "./components/dashboard/Dashboard.js"
 
@@ -8,6 +8,15 @@ class App extends Component {
   state = {
     ballsCount: 0,
     strikesCount: 0
+  }
+
+  ballClickHandler = () => {
+    console.log("in ballClickHandler")
+    this.setState(prevState => {
+      return {
+        ballsCount: prevState.ballsCount + 1
+      }
+    })
   }
 
   render() {
@@ -21,6 +30,7 @@ class App extends Component {
             ballsCount={this.state.ballsCount}
             strikesCount={this.state.strikesCount}
           />
+          <Dashboard ballClick={this.ballClickHandler} />
         </main>
       </div>
     )

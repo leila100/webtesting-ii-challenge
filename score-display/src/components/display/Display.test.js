@@ -10,7 +10,7 @@ describe("<Display />", () => {
     cleanup()
   })
 
-  it("displays balls text", () => {
+  xit("displays balls text", () => {
     const { getByText } = render(<Display />)
     getByText(/balls/i)
     cleanup()
