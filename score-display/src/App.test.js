@@ -44,11 +44,24 @@ describe("<App />", () => {
     const { getByTestId } = render(<App />)
     // find the button
     const ballButton = getByTestId("ballBtn")
-    // click the button 3 times to set the balls count to 3
+    // click the button 4 times to set the balls count to 4 (0)
     for (let i = 0; i < 4; i++) fireEvent.click(ballButton)
     // Get the new number of balls
     const ballsCount = getByTestId("balls").textContent
     expect(ballsCount).toBe("0")
     cleanup()
   })
+
+  it("strikes reset to 0 when a player reaches 3 strikes", () => {
+    const { getByTestId } = render(<App />)
+    // find the button
+    const strikeButton = getByTestId("strikeBtn")
+    // click the button 3 times to set the strikes count to 3 (0)
+    for (let i = 0; i < 3; i++) fireEvent.click(strikeButton)
+    // Get the new number of strikes
+    const strikesCount = getByTestId("strikes").textContent
+    expect(strikesCount).toBe("0")
+    cleanup()
+  })
 })
+4

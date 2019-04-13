@@ -19,9 +19,8 @@ class App extends Component {
 
   strikeClickHandler = () => {
     this.setState(prevState => {
-      return {
-        strikesCount: prevState.strikesCount + 1
-      }
+      if (prevState.strikesCount === 2) return { strikesCount: 0 }
+      return { strikesCount: prevState.strikesCount + 1 }
     })
   }
 
